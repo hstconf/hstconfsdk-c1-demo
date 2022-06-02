@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HSTConfSDK Demo</string>
+    <string name="permission_rationale">申请权限许可</string>
+</resources>
