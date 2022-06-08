@@ -27,15 +27,25 @@
         android:textSize="16sp"
         app:autoSizeMaxTextSize="@dimen/dp_20" />
 
-    <EditText
-        android:id="@+id/et_site"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Site"
-        android:padding="5dp"
-        android:text="http://82.157.11.12:8088"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+<!--    <EditText-->
+<!--        android:id="@+id/et_site"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Site"-->
+<!--        android:padding="5dp"-->
+<!--        android:text="http://82.157.11.218:8088/"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:textSize="16sp" />-->
+
+        <EditText
+            android:id="@+id/et_site"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Site"
+            android:padding="5dp"
+            android:text="http://82.157.11.218:8088/"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -117,7 +127,7 @@
             android:layout_height="wrap_content"
             android:hint="请输入会议号"
             android:padding="5dp"
-            android:text="10732422"
+            android:text="48183354"
             android:textSize="16sp" />
 
     </LinearLayout>

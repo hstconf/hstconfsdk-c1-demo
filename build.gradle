@@ -3,23 +3,82 @@
 buildscript {
     ext.kotlin_version = '1.3.72'
     repositories {
-	    google()
-        jcenter()
+        google()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url "https://www.jitpack.io"
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url "https://mvn.mob.com/android"
+            allowInsecureProtocol = true
+        }
+//        maven {
+//            url "http://maven.rongcloud.cn/repository/maven-releases/"
+//            allowInsecureProtocol = true
+//        }
+//        maven {
+//            url "https://raw.githubusercontent.com/Pgyer/analytics/master"
+//            allowInsecureProtocol = true
+//        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        // 集成MobPush
+        //classpath "com.mob.sdk:MobSDK:+"
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenLocal()
         mavenCentral()
-        maven { url "https://jitpack.io" }
+        maven {
+            url "https://www.jitpack.io"
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+            allowInsecureProtocol = true
+        }
+        maven {
+            url "http://mvn.mob.com/android"
+            allowInsecureProtocol = true
+        }
+        maven {
+            url "http://maven.rongcloud.cn/repository/maven-releases/"
+            allowInsecureProtocol = true
+        }
+//        maven {
+//            url "https://raw.githubusercontent.com/Pgyer/analytics/master"
+//            allowInsecureProtocol = true
+//        }
+//        maven {
+//            url 'http://developer.huawei.com/repo/'
+//            allowInsecureProtocol = true
+//        }
+
+//        flatDir {
+//            dirs project(':libsCenter').file('./')
+//            dirs project(':biz-libs').file('./')
+//        }
     }
 }
 

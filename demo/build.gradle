@@ -37,24 +37,134 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    packagingOptions {
+        pickFirst 'lib/*/libc++_shared.so'
+        pickFirst 'lib/armeabi/libRSSupport.so'
+        pickFirst 'lib/armeabi/librsjni_androidx.so'
+        pickFirst 'lib/armeabi/librsjni.so'
+        pickFirst 'lib/armeabi-v7a/libRSSupport.so'
+        pickFirst 'lib/armeabi-v7a/librsjni_androidx.so'
+        pickFirst 'lib/armeabi-v7a/librsjni.so'
+        pickFirst 'lib/arm64-v8a/librsjni.so'
+        pickFirst 'lib/arm64-v8a/libRSSupport.so'
+        pickFirst 'lib/arm64-v8a/librsjni_androidx.so'
+        pickFirst 'lib/x86_64/libRSSupport.so'
+        pickFirst 'lib/x86_64/librsjni_androidx.so'
+        pickFirst 'lib/x86_64/librsjni.so'
+        pickFirst 'lib/x86/librsjni_androidx.so'
+        pickFirst 'lib/x86/libRSSupport.so'
+        pickFirst 'lib/x86/librsjni.so'
+    }
+}
 
-
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.6.0'
+        force 'androidx.core:core:1.6.0'
+        force 'androidx.appcompat:appcompat:1.3.1'
+    }
 }
 
 dependencies {
     implementation 'pub.devrel:easypermissions:2.0.1'
 //    compile(name:'ConfLib', ext:'aar')
 //    implementation project(path: ':confsdk')
+
+
 //    implementation project(path: ':ConfLib')
 //    compile(name: 'examsrc', ext: 'aar')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     testImplementation 'junit:junit:4.12'
 
-    implementation 'com.github.hstconf:hstconfsdk-c1:v8.1.6.1'
+//    implementation 'org.webrtc:google-webrtc:1.0.+'
+
+    api('com.github.hstconf:hstconfsdk-c1:v8.1.6.10') {
+        exclude group: 'cn.sharesdk'
+    }
 
     //compile project(':Trunk_phone')
     // debugImplementation because LeakCanary should only run in debug builds.
     //debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
+
+//    api 'com.github.geeklx.libbase2:libbase:2.0.8'
+//    api 'com.github.geeklx.libbase2:libutils:2.0.8'
+//    api 'com.github.geeklx.libbase2:libotherlibs:2.0.7'
+
 }
+
+//apply plugin: 'com.mob.sdk'
+//
+//MobSDK {
+//    appKey "34c112a3a8f7b"
+//    appSecret "d26a4572dd8596c1fe2f9ab591ebeb1a"
+////    gui true
+//    apm false
+//    apiMode true
+////    spEdition "fp" // 设定MobSDK为隐私协议适配版本
+//    //fp true
+//    MobPush {
+//        debugLevel 4
+//        devInfo {
+//            HUAWEI {
+//                appId "104991287"
+//                version "6.1.0.300"
+//            }
+////            MEIZU {
+////                appId "127372"
+////                appKey "3fc6d1acc7ea4f90a0304967ee3a74ae"
+////            }
+//            XIAOMI {
+//                appId "2882303761520045772"
+//                appKey "5112004598772"
+//            }
+////            FCM {
+////                iconRes "@drawable/icon"
+////            }
+//            OPPO {
+//                appKey "6303014506164557acc69df6ef14300b"
+//                appSecret "c850609d8a0f492f8b9eeca1189aaec2"
+//            }
+//            VIVO {
+//                appId "105477021"
+//                appKey "002d86c250636bc30fc00bf3af478f6d"
+//            }
+//        }
+//    }
+//
+//    ShareSDK {
+//        loopShare true
+//        devInfo {
+//            SinaWeibo {
+//                appKey "568898243"
+//                appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
+//                callbackUri "http://www.sharesdk.cn"
+//            }
+//            Wechat {
+//                appId "wxa3fa50c49fcd271c"
+//                appSecret "e8a93eed2ccd89b047f29d0aa62e1c95"
+//                userName "gh_afb25ac019c9"
+//                path "pages/index/index.html?id=1"
+//                withShareTicket true
+//                miniprogramType 2
+//            }
+//            WechatMoments {
+//                appId "wxa3fa50c49fcd271c"
+//                appSecret "e8a93eed2ccd89b047f29d0aa62e1c95"
+//            }
+////            WechatFavorite {
+////                appId "wxa3fa50c49fcd271c"
+////                appSecret "e8a93eed2ccd89b047f29d0aa62e1c95"
+////            }
+//            QZone {
+//                appId "100371282"
+//                appKey "aed9b0303e3ed1e27bae87c33761161d"
+//            }
+//            QQ {
+//                appId "100371282"
+//                appKey "aed9b0303e3ed1e27bae87c33761161d"
+//            }
+//        }
+//    }
+//}

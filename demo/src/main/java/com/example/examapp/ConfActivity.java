@@ -23,6 +23,8 @@ import com.infowarelab.conference.ConferenceApplication;
 import com.infowarelab.conference.ui.activity.inconf.ConferenceActivity;
 import com.infowarelab.conference.ui.activity.preconf.BaseFragment;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragCreate;
+import com.infowarelab.conference.ui.activity.preconf.fragment.FragHistory;
+import com.infowarelab.conference.ui.activity.preconf.fragment.FragHistory;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragJoin;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragJoinById;
 import com.infowarelab.hongshantongphone.ConfAPI;
@@ -38,6 +40,7 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
     private FragCreate fragCreate;
     private FragJoin fragJoin;
     private FragJoinById fragJoinById;
+    private FragHistory fragHistory;
 
     private LinearLayout llBottomBar;
     private RelativeLayout rlRoot;
@@ -262,6 +265,9 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
         if (fragJoinById != null && fragJoinById.isAdded())
             ft.hide(fragJoinById);
 
+        if (fragHistory != null && fragHistory.isAdded())
+            ft.hide(fragHistory);
+
         switch (which) {
             case 1:
                 //发起会议
@@ -299,6 +305,18 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
                     ft.show(fragJoinById);
                 }
                 currentFrag = 3;
+                break;
+            case 5:
+                //历史会议
+                if (fragHistory == null) {
+                    fragHistory = new FragHistory();
+                    fragHistory.setOnSwitchPageListener(this);
+                    //fragJoin.setBaseFragmentActivity(this);
+                    ft.add(R.id.act_home_fl_container, fragHistory, "FragHistory");
+                } else {
+                    ft.show(fragHistory);
+                }
+                currentFrag = 5;
                 break;
             default:
                 break;
