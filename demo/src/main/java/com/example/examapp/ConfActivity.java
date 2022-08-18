@@ -27,6 +27,7 @@ import com.infowarelab.conference.ui.activity.preconf.fragment.FragHistory;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragHistory;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragJoin;
 import com.infowarelab.conference.ui.activity.preconf.fragment.FragJoinById;
+import com.infowarelab.conference.ui.activity.preconf.fragment.FragSignIn;
 import com.infowarelab.hongshantongphone.ConfAPI;
 import com.infowarelabsdk.conference.callback.CallbackManager;
 import com.infowarelabsdk.conference.domain.LoginBean;
@@ -41,6 +42,7 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
     private FragJoin fragJoin;
     private FragJoinById fragJoinById;
     private FragHistory fragHistory;
+    private FragSignIn fragSignIn;
 
     private LinearLayout llBottomBar;
     private RelativeLayout rlRoot;
@@ -167,10 +169,10 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
         rlRoot.post(new Runnable() {
             @Override
             public void run() {
-               initConfEngine();
-               switchFrag(2);
+                initConfEngine();
+                switchFrag(2);
 
-               dismissLoadingDialog();
+                dismissLoadingDialog();
             }
         });
     }
@@ -268,6 +270,9 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
         if (fragHistory != null && fragHistory.isAdded())
             ft.hide(fragHistory);
 
+        if (fragSignIn != null && fragSignIn.isAdded())
+            ft.hide(fragSignIn);
+
         switch (which) {
             case 1:
                 //发起会议
@@ -318,6 +323,17 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
                 }
                 currentFrag = 5;
                 break;
+            case 6:
+                //人脸签到
+                if (fragSignIn == null) {
+                    fragSignIn = new FragSignIn();
+                    fragSignIn.setOnSwitchPageListener(this);
+                    ft.add(R.id.act_home_fl_container, fragSignIn, "FragSignIn");
+                } else {
+                    ft.show(fragSignIn);
+                }
+                currentFrag = 6;
+                break;
             default:
                 break;
         }
@@ -334,7 +350,7 @@ public class ConfActivity extends AppCompatActivity implements BaseFragment.onSw
 //            return;
 //        }
 
-        if (currentFrag == 1 || currentFrag == 3 || currentFrag == 4) {
+        if (currentFrag == 1 || currentFrag == 3 || currentFrag == 4 || currentFrag == 6) {
             switchFrag(2);
             return;
         }

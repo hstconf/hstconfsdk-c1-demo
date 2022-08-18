@@ -3,17 +3,14 @@
 buildscript {
     ext.kotlin_version = '1.3.72'
     repositories {
-        google()
-        mavenLocal()
-        mavenCentral()
-        maven {
-            url "https://www.jitpack.io"
-            allowInsecureProtocol = true
-        }
+
         maven {
             url 'https://maven.aliyun.com/repository/public/'
             allowInsecureProtocol = true
         }
+
+        maven{url "https://jitpack.io"}
+
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
             allowInsecureProtocol = true
@@ -30,6 +27,10 @@ buildscript {
 //            url "https://raw.githubusercontent.com/Pgyer/analytics/master"
 //            allowInsecureProtocol = true
 //        }
+
+        google()
+        mavenLocal()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
@@ -43,17 +44,14 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
-        mavenLocal()
-        mavenCentral()
-        maven {
-            url "https://www.jitpack.io"
-            allowInsecureProtocol = true
-        }
+
         maven {
             url 'https://maven.aliyun.com/repository/public/'
             allowInsecureProtocol = true
         }
+
+        maven{url "https://jitpack.io"}
+
         maven {
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
             allowInsecureProtocol = true
@@ -79,6 +77,10 @@ allprojects {
 //            dirs project(':libsCenter').file('./')
 //            dirs project(':biz-libs').file('./')
 //        }
+
+        google()
+        mavenLocal()
+        mavenCentral()
     }
 }
 
