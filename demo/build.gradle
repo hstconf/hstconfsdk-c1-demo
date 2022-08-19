@@ -80,7 +80,7 @@ dependencies {
 
     implementation 'org.webrtc:google-webrtc:1.0.+'
 
-    api('com.github.hstconf:hstconfsdk-c1:v8.1.6.12') {
+    api('com.github.hstconf:hstconfsdk-c1:v8.1.6.14') {
         exclude group: 'cn.sharesdk'
     }
 
