@@ -80,9 +80,11 @@ dependencies {
 
     implementation 'org.webrtc:google-webrtc:1.0.+'
 
-    api('com.github.hstconf:hstconfsdk-c1:v8.1.6.14') {
+    api('com.github.hstconf:hstconfsdk-c1:v8.1.6.16') {
         exclude group: 'cn.sharesdk'
     }
+
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
 
     //compile project(':Trunk_phone')
     // debugImplementation because LeakCanary should only run in debug builds.
